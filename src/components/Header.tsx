@@ -2,6 +2,7 @@ import { FC, ReactNode } from 'react';
 
 // * components
 import ThemeSelect from './ThemeSelect';
+import FullscreenButton from './ui/FullscreenButton';
 
 // * interfaces
 interface HeaderProps {
@@ -17,7 +18,7 @@ const Header: FC<HeaderProps> = ({ children }) => {
         {children}
       </div>
       <div className='options right flex items-center pr-4'>
-        {/* FullscreenButton goes here */}
+        <FullscreenButton className='text-xl' />
       </div>
     </header>
   );
