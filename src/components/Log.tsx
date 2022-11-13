@@ -1,14 +1,14 @@
 import { FC, useCallback } from 'react';
 
 // * interfaces
-interface Log {
+export interface LogObject {
   type: string;
   message: number | string | boolean | object | Function;
 }
 
 interface LogProps {
   id: number;
-  log: Log;
+  log: LogObject;
 }
 
 const Log: FC<LogProps> = ({ id, log }) => {

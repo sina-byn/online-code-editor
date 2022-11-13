@@ -9,8 +9,11 @@ import Log from './Log';
 import Button from './ui/Button';
 import FullscreenButton from './ui/FullscreenButton';
 
+// * interfaces
+import { LogObject } from './Log';
+
 const Console: FC = () => {
-  const [logs, setLogs] = useState<any[]>([]);
+  const [logs, setLogs] = useState<LogObject[]>([]);
   const [expanded, setExpanded] = useState<boolean>(false);
   const consoleRef = useRef<HTMLDivElement>(null);
 
@@ -36,13 +39,9 @@ const Console: FC = () => {
     <div
       ref={consoleRef}
       className={`
-                w-full bg-zinc-800 text-gray-200 overflow-x-auto
-                ${
-                  expanded
-                    ? 'h-[300px] overflow-y-auto'
-                    : 'h-[40px] overflow-y-hidden'
-                }
-            `}
+        w-full bg-zinc-800 text-gray-200 overflow-x-auto
+        ${expanded ? 'h-[300px] overflow-y-auto' : 'h-[40px] overflow-y-hidden'}
+      `}
     >
       <section className='console-header h-[40px] flex items-center justify-between border-b border-gray-200/50 pr-4'>
         <Button onClick={expandToggler} className='gap-x-2 text-sm'>
