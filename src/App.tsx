@@ -8,6 +8,7 @@ import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import Header from './components/Header';
 import EditorsPane from './components/EditorsPane';
 import Button from './components/ui/Button';
+import Console from './components/Console';
 
 const App = () => {
   const iframeRef = useRef<HTMLIFrameElement>(null);
@@ -35,7 +36,7 @@ const App = () => {
             frameBorder='0'
             sandbox='allow-scripts allow-modals allow-same-origin'
           />
-          {/* Console goes here */}
+          <Console />
         </section>
       </main>
     </div>
