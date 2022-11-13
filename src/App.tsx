@@ -9,6 +9,7 @@ import Header from './components/Header';
 import EditorsPane from './components/EditorsPane';
 import Button from './components/ui/Button';
 import Console from './components/Console';
+import Resizer from './components/Resizer';
 
 const App = () => {
   const iframeRef = useRef<HTMLIFrameElement>(null);
@@ -26,7 +27,7 @@ const App = () => {
       </Header>
       <main className='flex h-full'>
         <EditorsPane />
-        {/* Resizer goes here */}
+        <Resizer />
         <section className='preview-pane w-full flex flex-col'>
           <iframe
             width='100%'
