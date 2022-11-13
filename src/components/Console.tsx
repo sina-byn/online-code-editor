@@ -27,7 +27,7 @@ const Console: FC = () => {
     if (!logs.length) return;
     console.clear();
     setLogs([]);
-  }, []);
+  }, [logs]);
 
   useEffect(() => {
     window.addEventListener('message', messageHandler);

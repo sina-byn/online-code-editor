@@ -1,8 +1,11 @@
-import { useRef } from 'react';
+import { useContext, useEffect, useRef } from 'react';
 
 // * icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
+
+// * context
+import { AppCtx } from './context/AppContextProvider';
 
 // * components
 import Header from './components/Header';
@@ -11,14 +14,26 @@ import Button from './components/ui/Button';
 import Console from './components/Console';
 import Resizer from './components/Resizer';
 
+// * functions
+import { srcDocTemplate } from './utils/functions';
+
 const App = () => {
+  const { code, liveMode } = useContext(AppCtx)!;
   const iframeRef = useRef<HTMLIFrameElement>(null);
+  const execCode = () => (iframeRef.current!.srcdoc = srcDocTemplate(code));
+
+  useEffect(() => {
+    if (!liveMode || !iframeRef.current) return;
+    const timeout = setTimeout(execCode, 250);
+
+    return () => clearTimeout(timeout);
+  }, [code, liveMode, iframeRef.current]);
 
   return (
     <div className='app-container flex flex-col h-screen w-screen overflow-hidden'>
       <Header>
         <Button
-          onClick={() => null}
+          onClick={execCode}
           className='bg-green-500 text-gray-200 gap-x-2 hover:bg-green-600'
         >
           run
