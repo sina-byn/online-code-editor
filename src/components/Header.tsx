@@ -2,6 +2,7 @@ import { FC, ReactNode } from 'react';
 
 // * components
 import ThemeSelect from './ThemeSelect';
+import ModeSwitch from './ModeSwitch';
 import FullscreenButton from './ui/FullscreenButton';
 
 // * interfaces
@@ -14,7 +15,7 @@ const Header: FC<HeaderProps> = ({ children }) => {
     <header className='flex justify-between bg-zinc-900 px-2 py-3'>
       <div className='options left flex items-center gap-x-4'>
         <ThemeSelect />
-        {/* ModeSwitch goes here */}
+        <ModeSwitch />
         {children}
       </div>
       <div className='options right flex items-center pr-4'>
