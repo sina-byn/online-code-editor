@@ -6,6 +6,8 @@ interface ProviderProps {
 }
 
 interface AppContext {
+  code: Code;
+  setCode: Dispatch<SetStateAction<Code>>;
   theme: string;
   setTheme: Dispatch<SetStateAction<string>>;
   liveMode: boolean;
@@ -13,14 +15,27 @@ interface AppContext {
   fullscreenElem: Element | null;
 }
 
+export interface Code {
+  html: string;
+  css: string;
+  js: string;
+};
+
 export const AppCtx = createContext<AppContext | null>(null);
 
 const AppContextProvider: FC<ProviderProps> = ({ children }) => {
   const [fullscreenElem, setFullscreenElem] = useState<Element | null>(null);
   const [liveMode, setLiveMode] = useState<boolean>(false);
   const [theme, setTheme] = useState<string>('githubDark');
+  const [code, setCode] = useState<Code>({
+    html: '',
+    css: '',
+    js: ''
+  });
 
   const ctx = {
+    code, 
+    setCode,
     theme,
     setTheme,
     liveMode,

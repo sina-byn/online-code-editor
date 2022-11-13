@@ -12,7 +12,7 @@ interface HeaderProps {
 
 const Header: FC<HeaderProps> = ({ children }) => {
   return (
-    <header className='flex justify-between bg-zinc-900 px-4 py-3'>
+    <header className='h-[60px] flex justify-between bg-zinc-900 px-4'>
       <div className='options left flex items-center gap-x-4'>
         <ThemeSelect />
         <ModeSwitch />
