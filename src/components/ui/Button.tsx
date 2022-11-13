@@ -1,4 +1,4 @@
-import { FC, ReactNode, MouseEventHandler } from 'react';
+import { ReactNode, forwardRef, MouseEventHandler } from 'react';
 
 // * interfaces
 interface ButtonProps {
@@ -7,16 +7,19 @@ interface ButtonProps {
   className?: string;
 }
 
-const Button: FC<ButtonProps> = ({ onClick, children, className }) => {
+const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
+  const { onClick, className, children } = props;
+  
   return (
     <button
       type='button'
+      ref={ref || null}
       onClick={onClick}
       className={`flex items-center rounded-md transition-transform duration-100 pb-1 px-3 active:scale-95 outline-0 ${className}`}
     >
       {children}
     </button>
   );
-};
+});
 
 export default Button;

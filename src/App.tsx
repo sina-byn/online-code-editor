@@ -20,7 +20,7 @@ const App = () => {
           className='bg-green-500 text-gray-200 gap-x-2 hover:bg-green-600'
         >
           run
-          <FontAwesomeIcon icon={faPlay} />
+          <FontAwesomeIcon icon={faPlay} className='text-sm mt-1' />
         </Button>
       </Header>
       <main className='flex h-full'>
