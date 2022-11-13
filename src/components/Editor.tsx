@@ -52,7 +52,7 @@ const Editor: FC<EditorProps> = ({ lang, code, setCode, theme }) => {
         ${isCollapsed ? 'h-auto' : 'h-full overflow-y-auto'}
       `}
     >
-      <div className='box-header sticky top-0 left-0 z-10 flex items-center justify-between h-[30px] text-gray-200 bg-zinc-700 border-b border-gray-700/50 px-2.5'>
+      <div className='box-header sticky top-0 left-0 z-10 flex items-center justify-between h-[30px] text-gray-200 bg-zinc-700 border-b border-gray-200/50 px-2.5'>
         <h5 className='uppercase'>{lang}</h5>
         <div className='controls flex items-center gap-x-3'>
           <FontAwesomeIcon
