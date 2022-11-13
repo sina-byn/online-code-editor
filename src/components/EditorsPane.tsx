@@ -1,4 +1,4 @@
-import { FC, useContext, useEffect } from 'react';
+import { FC, useContext } from 'react';
 
 // * context
 import { AppCtx } from '../context/AppContextProvider';
