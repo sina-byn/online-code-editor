@@ -13,9 +13,12 @@ const ThemeSelect = () => {
   const { theme, setTheme } = useContext(AppCtx)!;
 
   return (
-    <div>
-      <Select value={theme} setValue={setTheme} items={themes} className='w-[5.8rem]' />
-    </div>
+    <Select
+      value={theme}
+      setValue={setTheme}
+      items={themes}
+      className='w-[5.8rem]'
+    />
   );
 };
 
