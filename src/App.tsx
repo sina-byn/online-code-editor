@@ -30,7 +30,7 @@ const App = () => {
   }, [code, liveMode, iframeRef.current]);
 
   return (
-    <div className='app-container flex flex-col h-screen w-screen overflow-hidden'>
+    <div className='app-container flex flex-col h-screen w-screen overflow-x-hidden md:overflow-hidden'>
       <Header>
         <Button
           onClick={execCode}
@@ -40,10 +40,10 @@ const App = () => {
           <FontAwesomeIcon icon={faPlay} className='text-sm mt-1' />
         </Button>
       </Header>
-      <main className='flex h-full'>
+      <main className='flex h-full flex-col md:flex-row'>
         <EditorsPane />
         <Resizer />
-        <section className='preview-pane w-full flex flex-col'>
+        <section className='preview-pane w-full flex flex-col pb-[40px] md:pb-0'>
           <iframe
             width='100%'
             height='100%'

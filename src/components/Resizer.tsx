@@ -15,9 +15,17 @@ const Resizer = () => {
   const {x, leftWidth} = stats;
 
   useEffect(() => {
+    if (leftWidth === 0 || x === 0) return;
     const resizer = resizerRef.current!;
     const leftSide = resizer.previousSibling! as HTMLElement;
-    leftSide.style.width = `${stats.leftWidth}px`;
+    const resizeHandler = () => {
+      if (window.innerWidth < 768) leftSide.style.width = '100%';
+    };
+    
+    window.addEventListener('resize', resizeHandler);
+    leftSide.style.width = `${leftWidth}px`;
+
+    () => window.removeEventListener('reset', resizeHandler);
   }, [stats]);
 
   const mouseMoveHandler = (e: MouseEvent) => {
@@ -75,7 +83,7 @@ const Resizer = () => {
     <div
       ref={resizerRef}
       onMouseDown={mouseDownHandler}
-      className='bg-blue-500/75 w-1 cursor-ew-resize'
+      className='bg-blue-500/75 w-1 cursor-ew-resize hidden md:block'
     />
   );
 };

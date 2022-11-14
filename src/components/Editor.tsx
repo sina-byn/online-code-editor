@@ -48,7 +48,7 @@ const Editor: FC<EditorProps> = ({ lang, code, setCode, theme }) => {
     <div
       ref={containerRef}
       className={`
-        grid grid-cols-1 grid-rows-[30px,_1fr] 
+        w-full grid grid-cols-1 grid-rows-[30px,_1fr] 
         ${isCollapsed ? 'h-auto' : 'h-full overflow-y-auto'}
       `}
     >

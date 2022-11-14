@@ -39,7 +39,7 @@ const Console: FC = () => {
     <div
       ref={consoleRef}
       className={`
-        w-full bg-zinc-800 text-gray-200 overflow-x-auto
+        w-full bg-zinc-800 text-gray-200 overflow-x-auto fixed -bottom-0 left-0 z-20 md:static
         ${expanded ? 'h-[300px] overflow-y-auto' : 'h-[40px] overflow-y-hidden'}
       `}
     >
