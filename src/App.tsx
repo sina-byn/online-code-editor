@@ -20,7 +20,7 @@ import { srcDocTemplate } from './utils/functions';
 const App = () => {
   const { code, liveMode } = useContext(AppCtx)!;
   const iframeRef = useRef<HTMLIFrameElement>(null);
-  const execCode = () => (iframeRef.current!.srcdoc = srcDocTemplate(code));
+  const execCode = () => (iframeRef.current!.srcdoc = srcDocTemplate(code, liveMode));
 
   useEffect(() => {
     if (!liveMode || !iframeRef.current) return;

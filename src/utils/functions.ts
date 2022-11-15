@@ -1,7 +1,7 @@
 // * interfaces
 import { Code } from "../context/AppContextProvider";
 
-const srcDocTemplate = (code: Code): string => {
+const srcDocTemplate = (code: Code, liveMode: boolean): string => {
     const { html, css, js } = code;
 
     return `
@@ -55,7 +55,8 @@ const srcDocTemplate = (code: Code): string => {
          })(window.console);
          ${js}
          logMessages.push('log-messages');
-         window.parent.postMessage(JSON.stringify(logMessages));
+         if (${!liveMode})
+          window.parent.postMessage(JSON.stringify(logMessages));
         </script>
       </html>
     `;

@@ -12,6 +12,11 @@ import FullscreenButton from './ui/FullscreenButton';
 // * interfaces
 import { LogObject } from './Log';
 
+const defaultLog: LogObject = {
+  message: 'the console messages are only shown using the run button - supported methods ==> log(), info(), warn() and error()',
+  type: 'log'
+};
+
 const Console: FC = () => {
   const [logs, setLogs] = useState<LogObject[]>([]);
   const [expanded, setExpanded] = useState<boolean>(false);
@@ -64,6 +69,7 @@ const Console: FC = () => {
         </div>
       </section>
       <ul className='console-main font-consolas text-xs pt-2'>
+        <Log id={0} log={defaultLog} />
         {logs && logs.map((log, idx) => <Log key={idx} id={++idx} log={log} />)}
       </ul>
     </div>
