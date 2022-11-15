@@ -18,7 +18,7 @@ const Header: FC<HeaderProps> = ({ children }) => {
         <ModeSwitch />
         {children}
       </div>
-      <div className='options right flex items-center'>
+      <div className='options right hidden md:flex items-center'>
         <FullscreenButton className='text-xl' />
       </div>
     </header>
